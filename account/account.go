@@ -19,7 +19,7 @@ func TotpAccounts() []TotpAccount {
 	accounts := make([]TotpAccount, 0)
 	secretsfile, err := os.Open(path.Join(os.Getenv("HOME"), "totpsecrets"))
 	if err != nil {
-		log.Fatalf("Could not open root folder. Cause: %v", err)
+		log.Fatalf("Could not open file. Cause: %v", err)
 	}
 	scanner := bufio.NewScanner(secretsfile)
 	for scanner.Scan() {

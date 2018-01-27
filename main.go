@@ -15,6 +15,7 @@ func main() {
 
 func generateCodes(accounts []account.TotpAccount) {
 	codeTime := time.Now()
+	fmt.Printf("It is %v\n", codeTime.Format("Jan 2, 2006 at 3:04pm (MST)"))
 	for _, account := range accounts {
 		code, err := totp.GenerateCode(strings.ToUpper(account.Secret), codeTime)
 		if err == nil {

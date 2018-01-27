@@ -10,7 +10,6 @@ import (
 )
 
 func main() {
-	fmt.Println("totp client starting...")
 	generateCodes(account.TotpAccounts())
 }
 
@@ -19,9 +18,9 @@ func generateCodes(accounts []account.TotpAccount) {
 	for _, account := range accounts {
 		code, err := totp.GenerateCode(strings.ToUpper(account.Secret), codeTime)
 		if err == nil {
-			fmt.Printf("Code for [%v] is [%v]\n", account.Name, code)
+			fmt.Printf("%v - %v\n", account.Name, code)
 		} else {
-			fmt.Printf("Could not generate code for [%v] due to [%v]\n", account.Name, err)
+			fmt.Printf("Could not generate code for %v due to [%v]\n", account.Name, err)
 		}
 	}
 }
